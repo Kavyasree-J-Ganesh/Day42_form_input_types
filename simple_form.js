@@ -1,6 +1,7 @@
 const textErrorName = document.querySelector(".text-error-name");
 const textErrorEmail = document.querySelector(".text-error-email");
 const textErrorTel = document.querySelector(".text-error-tel");
+const textErrorPwd = document.querySelector(".text-error-pwd");
 
 document.getElementById("text").addEventListener("change",event=>{
     let nameRegex = RegExp('^[A-Z][a-z A-Z \\s]{2,}$')
@@ -24,5 +25,13 @@ document.getElementById("tel").addEventListener("change",event=>{
         textErrorTel.textContent = "Telphone number is incorrect"
     else
         textErrorTel.textContent = ""
+})
+
+document.getElementById("pwd").addEventListener("change",event=>{
+    let telRegex = RegExp('[^ ]{8,}')
+    if (!telRegex.test(event.target.value))
+        textErrorPwd.textContent = "Password is incorrect"
+    else
+        textErrorPwd.textContent = ""
 })
 
